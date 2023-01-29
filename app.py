@@ -19,10 +19,12 @@ def predict():
 
     
       
-    pred = model.predict(np.array([[Aspect_Ratio, Uniformity, Elongation, Solidity ]]))
-    print(pred)
-    return render_template('index.html', predict=str(pred))
-
+    #pred = model.predict(np.array([[Aspect_Ratio, Uniformity, Elongation, Solidity ]]))
+    #print(pred)
+    #return render_template('index.html', predict=str(pred))
+     pred = model.predict([float(Aspect_Ratio), float(Uniformity), float(Elongation), float(Solidity)])
+     print(pred)
+     return render_template('index.html', predict=str(pred[0]))
 
 if __name__ == '__main__':
     app.run
